@@ -1,0 +1,466 @@
+# 数据源配置文件
+
+# 数据源类型定义
+source_types:
+  - name: academic
+    display_name: 学术数据源
+    description: 学术论文、研究报告、学术数据库
+    credibility: high
+    priority: 1
+  
+  - name: industry
+    display_name: 行业数据源
+    description: 行业报告、白皮书、市场研究
+    credibility: medium
+    priority: 2
+  
+  - name: news
+    display_name: 新闻数据源
+    description: 新闻媒体、专业新闻网站
+    credibility: medium
+    priority: 3
+  
+  - name: official
+    display_name: 官方数据源
+    description: 政府网站、监管机构、国际组织
+    credibility: high
+    priority: 1
+  
+  - name: expert
+    display_name: 专家数据源
+    description: 专家博客、专栏、访谈
+    credibility: medium
+    priority: 3
+
+# 具体数据源配置
+data_sources:
+  # 学术数据源
+  - id: arxiv
+    name: arXiv
+    type: academic
+    url: https://arxiv.org/
+    description: 预印本学术论文库，涵盖物理学、数学、计算机科学等领域
+    api_supported: true
+    rate_limit: 100 requests/min
+    search_endpoint: https://export.arxiv.org/api/query
+    supported_params:
+      - search_query
+      - start
+      - max_results
+      - sortBy
+      - sortOrder
+  
+  - id: google_scholar
+    name: Google Scholar
+    type: academic
+    url: https://scholar.google.com/
+    description: 综合性学术搜索引擎，涵盖各类学术文献
+    api_supported: false
+    rate_limit: 10 requests/min
+    search_endpoint: https://scholar.google.com/scholar
+    supported_params:
+      - q
+      - hl
+      - as_sdt
+      - as_vis
+  
+  - id: ieee_xplore
+    name: IEEE Xplore
+    type: academic
+    url: https://ieeexplore.ieee.org/
+    description: IEEE学术数据库，专注于工程、计算机科学等领域
+    api_supported: true
+    rate_limit: 50 requests/min
+    search_endpoint: https://ieeexploreapi.ieee.org/api/v1/search/articles
+    supported_params:
+      - querytext
+      - format
+      - max_records
+      - start_record
+  
+  # 行业数据源
+  - id: gartner
+    name: Gartner
+    type: industry
+    url: https://www.gartner.com/
+    description: 全球知名市场研究机构，提供行业报告和分析
+    api_supported: false
+    rate_limit: 5 requests/min
+    search_endpoint: https://www.gartner.com/en/search
+    supported_params:
+      - query
+      - filters
+  
+  - id: mckinsey
+    name: McKinsey
+    type: industry
+    url: https://www.mckinsey.com/
+    description: 全球管理咨询公司，提供行业洞察和报告
+    api_supported: false
+    rate_limit: 5 requests/min
+    search_endpoint: https://www.mckinsey.com/search
+    supported_params:
+      - q
+      - site
+  
+  - id: forrester
+    name: Forrester
+    type: industry
+    url: https://www.forrester.com/
+    description: 市场研究和咨询公司，提供行业分析和报告
+    api_supported: false
+    rate_limit: 5 requests/min
+    search_endpoint: https://www.forrester.com/search
+    supported_params:
+      - q
+      - filter
+  
+  # 新闻数据源
+  - id: reuters
+    name: Reuters
+    type: news
+    url: https://www.reuters.com/
+    description: 全球知名新闻机构，提供财经和国际新闻
+    api_supported: true
+    rate_limit: 600 requests/month
+    search_endpoint: https://api.reuters.com/v2/search
+    supported_params:
+      - q
+      - dateRange
+      - sortOrder
+      - limit
+  
+  - id: bbc_news
+    name: BBC News
+    type: news
+    url: https://www.bbc.com/news
+    description: 英国广播公司新闻，提供全球新闻报道
+    api_supported: true
+    rate_limit: 1000 requests/day
+    search_endpoint: https://newsapi.org/v2/everything
+    supported_params:
+      - q
+      - sources
+      - from
+      - to
+      - sortBy
+  
+  - id: techcrunch
+    name: TechCrunch
+    type: news
+    url: https://techcrunch.com/
+    description: 科技新闻网站，专注于科技创业和创新
+    api_supported: false
+    rate_limit: 10 requests/min
+    search_endpoint: https://techcrunch.com/search/
+    supported_params:
+      - s
+      - page
+  
+  # 官方数据源
+  - id: who
+    name: World Health Organization
+    type: official
+    url: https://www.who.int/
+    description: 世界卫生组织，提供全球健康相关信息和指南
+    api_supported: false
+    rate_limit: 20 requests/min
+    search_endpoint: https://www.who.int/search
+    supported_params:
+      - q
+      - lang
+  
+  - id: un
+    name: United Nations
+    type: official
+    url: https://www.un.org/
+    description: 联合国，提供全球政治、经济、社会等方面的信息
+    api_supported: false
+    rate_limit: 15 requests/min
+    search_endpoint: https://www.un.org/en/search
+    supported_params:
+      - searchTerm
+      - lang
+  
+  - id: eu_commission
+    name: European Commission
+    type: official
+    url: https://ec.europa.eu/
+    description: 欧盟委员会，提供欧盟政策和法规信息
+    api_supported: false
+    rate_limit: 15 requests/min
+    search_endpoint: https://ec.europa.eu/info/search_en
+    supported_params:
+      - search_api_fulltext
+      - language
+  
+  # 专家数据源
+  - id: medium
+    name: Medium
+    type: expert
+    url: https://medium.com/
+    description: 内容平台，包含许多专家博客和专栏
+    api_supported: true
+    rate_limit: 3000 requests/day
+    search_endpoint: https://api.medium.com/v1/search
+    supported_params:
+      - q
+      - limit
+      - offset
+  
+  - id: linkedin
+    name: LinkedIn
+    type: expert
+    url: https://www.linkedin.com/
+    description: 职业社交平台，包含专家观点和行业洞察
+    api_supported: true
+    rate_limit: 100 requests/day
+    search_endpoint: https://api.linkedin.com/v2/search
+    supported_params:
+      - q
+      - count
+      - start
+  
+  - id: github
+    name: GitHub
+    type: expert
+    url: https://github.com/
+    description: 代码托管平台，包含技术专家的项目和见解
+    api_supported: true
+    rate_limit: 60 requests/hour
+    search_endpoint: https://api.github.com/search/repositories
+    supported_params:
+      - q
+      - sort
+      - order
+      - per_page
+      - page
+
+# 数据源选择策略
+selection_strategy:
+  # 基于主题类型的数据源推荐
+  topic_based_recommendations:
+    technology:
+      - academic: [arxiv, google_scholar, ieee_xplore]
+      - industry: [gartner, mckinsey]
+      - news: [techcrunch, reuters]
+      - expert: [github, medium]
+    healthcare:
+      - academic: [arxiv, google_scholar]
+      - industry: [mckinsey, forrester]
+      - news: [reuters, bbc_news]
+      - official: [who]
+    finance:
+      - industry: [gartner, mckinsey]
+      - news: [reuters, bbc_news]
+      - official: [un]
+    policy:
+      - official: [eu_commission, un, who]
+      - academic: [google_scholar]
+      - news: [reuters, bbc_news]
+  
+  # 基于详细程度的数据源数量
+  detail_based_source_count:
+    summary: 3-5
+    standard: 5-8
+    detailed: 8-12
+  
+  # 数据源优先级规则
+  priority_rules:
+    - rule: 学术主题优先使用学术数据源
+      condition: topic_contains("research", "study", "academic", "science")
+      action: set_priority(academic, 1)
+    
+    - rule: 政策主题优先使用官方数据源
+      condition: topic_contains("policy", "regulation", "law", "compliance")
+      action: set_priority(official, 1)
+    
+    - rule: 行业主题优先使用行业数据源
+      condition: topic_contains("industry", "market", "business", "trend")
+      action: set_priority(industry, 1)
+    
+    - rule: 新闻事件优先使用新闻数据源
+      condition: topic_contains("news", "event", "incident", "latest")
+      action: set_priority(news, 1)
+
+# 数据源访问配置
+access_config:
+  # 通用请求配置
+  general:
+    timeout: 30  # 秒
+    retry_attempts: 3
+    retry_delay: 2  # 秒
+    user_agent: "Deep Research Assistant/2.0"
+  
+  # API密钥配置（示例）
+  api_keys:
+    reuters:
+      env_var: "REUTERS_API_KEY"
+    bbc_news:
+      env_var: "NEWSAPI_KEY"
+    medium:
+      env_var: "MEDIUM_API_KEY"
+    linkedin:
+      env_var: "LINKEDIN_API_KEY"
+    github:
+      env_var: "GITHUB_API_KEY"
+  
+  # 代理配置
+  proxy:
+    enabled: false
+    host: "proxy.example.com"
+    port: 8080
+    username: ""
+    password: ""
+
+# 数据质量评估配置
+quality_assessment:
+  # 可信度评估规则
+  credibility_rules:
+    academic:
+      - rule: 同行评审期刊论文
+        condition: source_contains("journal", "peer-reviewed", "academic")
+        score: 0.9
+      
+      - rule: 会议论文
+        condition: source_contains("conference", "proceedings")
+        score: 0.8
+      
+      - rule: 预印本
+        condition: source_contains("preprint", "arxiv")
+        score: 0.7
+    
+    industry:
+      - rule: 知名研究机构报告
+        condition: source_in(["gartner", "mckinsey", "forrester"])
+        score: 0.8
+      
+      - rule: 行业协会报告
+        condition: source_contains("association", "industry report")
+        score: 0.7
+      
+      - rule: 一般行业报告
+        condition: source_contains("industry", "market")
+        score: 0.6
+    
+    news:
+      - rule: 知名新闻机构
+        condition: source_in(["reuters", "bbc_news", "the_guardian"])
+        score: 0.7
+      
+      - rule: 专业新闻网站
+        condition: source_contains("techcrunch", "wired", "bloomberg")
+        score: 0.6
+      
+      - rule: 一般新闻网站
+        condition: source_contains("news", "media")
+        score: 0.5
+    
+    official:
+      - rule: 国际组织
+        condition: source_in(["who", "un", "eu_commission"])
+        score: 0.9
+      
+      - rule: 国家政府机构
+        condition: source_contains("government", "ministry", "agency")
+        score: 0.8
+      
+      - rule: 地方政府机构
+        condition: source_contains("local government", "municipal")
+        score: 0.7
+    
+    expert:
+      - rule: 知名专家
+        condition: author_in("expert_list")
+        score: 0.7
+      
+      - rule: 专业平台内容
+        condition: source_in(["medium", "linkedin", "github"])
+        score: 0.6
+      
+      - rule: 一般专家内容
+        condition: source_contains("blog", "column")
+        score: 0.5
+  
+  # 时效性评估规则
+  timeliness_rules:
+    - rule: 非常新（1个月内）
+      condition: age_days < 30
+      score: 0.9
+    
+    - rule: 较新（3个月内）
+      condition: age_days < 90
+      score: 0.8
+    
+    - rule: 适中（6个月内）
+      condition: age_days < 180
+      score: 0.7
+    
+    - rule: 较旧（1年内）
+      condition: age_days < 365
+      score: 0.6
+    
+    - rule: 旧（1年以上）
+      condition: age_days >= 365
+      score: 0.5
+  
+  # 相关性评估规则
+  relevance_rules:
+    - rule: 高度相关
+      condition: keyword_match_count >= 5
+      score: 0.9
+    
+    - rule: 中度相关
+      condition: keyword_match_count >= 3
+      score: 0.7
+    
+    - rule: 低相关
+      condition: keyword_match_count >= 1
+      score: 0.5
+    
+    - rule: 不相关
+      condition: keyword_match_count == 0
+      score: 0.3
+  
+  # 综合质量评分计算
+  scoring_formula:
+    credibility_weight: 0.4
+    timeliness_weight: 0.3
+    relevance_weight: 0.3
+    min_score: 0.3
+    max_score: 1.0
+
+# 数据处理配置
+data_processing:
+  # 去重配置
+  deduplication:
+    enabled: true
+    similarity_threshold: 0.8
+    fields_to_compare:
+      - title
+      - abstract
+      - content
+  
+  # 过滤配置
+  filtering:
+    enabled: true
+    min_quality_score: 0.4
+    max_age_days: 365
+    max_results_per_source: 5
+  
+  # 提取配置
+  extraction:
+    enabled: true
+    fields:
+      - title
+      - author
+      - publication_date
+      - abstract
+      - content
+      - keywords
+      - url
+      - source_type
+      - credibility_score
+      - timeliness_score
+      - relevance_score
+      - quality_score
