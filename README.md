@@ -5,19 +5,25 @@
 `daoSkilLs` 目录是 daoApps 生态系统中使用的技能的集中存储库。它提供了一种结构化的方式来组织、管理和维护各种技能，以增强 daoApps 平台的功能。
 
 ### 核心用途
-- **技能管理**：将所有技能集中在一个位置，便于访问和维护
-- **标准化**：确保所有技能具有一致的结构和文档
-- **可重用性**：促进技能在 daoApps 平台不同部分的重用
-- **可扩展性**：提供框架以支持平台增长时添加新技能
+
+| 用途 | 说明 |
+|------|------|
+| **技能管理** | 将所有技能集中在一个位置，便于访问和维护 |
+| **标准化** | 确保所有技能具有一致的结构和文档 |
+| **可重用性** | 促进技能在 daoApps 平台不同部分的重用 |
+| **可扩展性** | 提供框架以支持平台增长时添加新技能 |
 
 ### 在项目中的角色
+
 该目录作为 daoApps 的技能库，包含可调用以执行特定任务的专门功能。每个技能都设计用于处理特定的领域或用例，提供增强整体平台的专注能力。
 
 ## 主要功能
 
-`daoSkilLs` 目录目前包含两个主要技能，每个技能都设计用于处理特定的用例：
+`daoSkilLs` 目录包含多个技能分类，每个分类下包含多个专门技能：
 
-### 1. alipay-payment-integration（支付宝支付集成）
+### 1. 支付集成技能
+
+#### 1.1 alipay-payment-integration（支付宝支付集成）
 
 **描述**：一个全面的技能，用于支付宝支付集成最佳实践，涵盖各种支付场景和集成方法。
 
@@ -32,7 +38,9 @@
 - 为特定业务场景选择合适的支付方式
 - 遵循支付集成的安全最佳实践
 
-### 2. task-execution-summary（任务执行总结）
+### 2. 任务管理技能
+
+#### 2.1 task-execution-summary（任务执行总结）
 
 **描述**：一个用于生成任务执行过程结构化总结的技能，创建高质量的结构化经验报告。
 
@@ -48,46 +56,178 @@
 - 学习总结和知识管理
 - 团队协作效果评估
 
+### 3. Claude API 与开发技能（anthropics-skills）
+
+来自 Anthropic 的官方技能集合，提供专业的 Claude API 使用指导和开发工具。
+
+#### 3.1 claude-api（Claude API 开发）
+
+**描述**：构建、调试和优化 Claude API / Anthropic SDK 应用的完整指南。
+
+**主要特性**：
+- 支持多种编程语言：Python、TypeScript、Java、Go、Ruby、C#、PHP
+- 提供 Managed Agents（托管代理）开发指导
+- 包含提示缓存、结构化输出、工具使用等高级功能
+- 支持流式处理和批处理
+
+**使用场景**：
+- 构建 LLM 驱动的应用程序
+- 开发智能代理和自动化工作流
+- 实现多语言 Claude API 集成
+
+#### 3.2 mcp-builder（MCP 服务器构建）
+
+**描述**：创建高质量 MCP（Model Context Protocol）服务器的指南，使 LLM 能够通过精心设计的工具与外部服务交互。
+
+**主要特性**：
+- 支持 Python（FastMCP）和 Node/TypeScript（MCP SDK）
+- 提供完整的四阶段开发流程：研究规划、实现、审查测试、评估
+- 包含工具设计最佳实践和评估方法
+
+**使用场景**：
+- 构建 MCP 服务器以集成外部 API 或服务
+- 创建自定义工具供 LLM 使用
+
+#### 3.3 pdf（PDF 处理）
+
+**描述**：PDF 文件处理指南，包括读取、提取、合并、拆分、创建等操作。
+
+**主要特性**：
+- 支持文本和表格提取
+- PDF 合并、拆分、旋转页面
+- 添加水印和密码保护
+- OCR 扫描 PDF 文字识别
+
+**使用场景**：
+- 文档处理和数据提取
+- PDF 文档生成和编辑
+- 表单填写和文档转换
+
+#### 3.4 docx（Word 文档处理）
+
+**描述**：Word 文档（.docx）的创建、编辑和分析指南。
+
+**主要特性**：
+- 创建新文档（使用 docx-js）
+- 编辑现有文档（解包-编辑-打包流程）
+- 支持表格、图片、页眉页脚、目录
+- 跟踪更改和批注处理
+
+**使用场景**：
+- 生成专业格式的 Word 文档
+- 文档内容提取和重组
+- 批量文档处理和模板生成
+
+#### 3.5 pptx（PowerPoint 演示文稿）
+
+**描述**：PowerPoint 演示文稿的创建和编辑指南。
+
+**主要特性**：
+- 创建新幻灯片
+- 编辑现有演示文稿
+- 幻灯片清理和优化
+
+**使用场景**：
+- 自动生成演示文稿
+- 批量处理幻灯片内容
+
+#### 3.6 skill-creator（技能创建器）
+
+**描述**：创建新技能、修改和优化现有技能，以及衡量技能性能的指南。
+
+**主要特性**：
+- 从零开始创建技能
+- 编辑和优化现有技能
+- 运行评估测试技能性能
+- 基准测试和方差分析
+
+**使用场景**：
+- 开发新的自定义技能
+- 优化技能描述以提高触发准确性
+
+#### 3.7 其他 anthropics-skills
+
+| 技能名称 | 描述 |
+|----------|------|
+| **algorithmic-art** | 算法艺术生成，创建生成式艺术作品 |
+| **brand-guidelines** | 品牌指南管理，维护品牌一致性 |
+| **canvas-design** | Canvas 设计工具，包含丰富的字体库 |
+| **doc-coauthoring** | 文档协作编写，支持多人协作 |
+| **frontend-design** | 前端设计指导，UI/UX 最佳实践 |
+| **internal-comms** | 内部沟通模板，公司通讯和 FAQ |
+| **theme-factory** | 主题工厂，创建和管理主题 |
+| **webapp-testing** | Web 应用测试指南 |
+| **web-artifacts-builder** | Web 构件构建工具 |
+| **xlsx** | Excel 电子表格处理 |
+| **slack-gif-creator** | Slack GIF 创建工具 |
+
 ## 文件结构
 
-`daoSkilLs` 目录遵循结构化的组织方式，以确保一致性和易于维护。每个技能都有自己专用的目录，包含用于核心功能、文档和参考资料的标准化子目录。
+`daoSkilLs` 目录遵循结构化的组织方式，以确保一致性和易于维护。
 
 ### 目录树
 
 ```
 daoSkilLs/
-├── .git/                # Git 版本控制目录
-├── .gitignore           # Git 忽略文件
-├── LICENSE              # 许可证文件
-├── README.md            # 本 README 文件
-└── skills/              # 主要技能目录
-    ├── alipay-payment-integration/  # 支付宝支付集成技能
-    │   ├── SKILL.md     # 技能元数据和文档
-    │   ├── modules/     # 模块化组件
-    │   │   ├── core/    # 核心功能和指南
-    │   │   ├── docs/    # 文档
-    │   │   ├── products/ # 支付产品特定指南
-    │   │   └── utils/   # 实用函数和工具
-    │   └── references/  # 参考资料
-    └── task-execution-summary/  # 任务执行总结技能
-        ├── SKILL.md     # 技能元数据和文档
-        ├── evals/       # 评估文件
-        └── references/  # 参考资料和示例
+├── .git/                      # Git 版本控制目录
+├── .gitignore                 # Git 忽略文件
+├── LICENSE                    # 许可证文件（Apache 2.0）
+├── README.md                  # 本 README 文件
+└── skills/                    # 主要技能目录
+    ├── alipay-payment-integration/     # 支付宝支付集成技能
+    │   ├── SKILL.md           # 技能元数据和文档
+    │   ├── modules/           # 模块化组件
+    │   │   ├── core/          # 核心功能和指南
+    │   │   ├── docs/          # 文档
+    │   │   ├── products/      # 支付产品特定指南
+    │   │   └── utils/         # 实用函数和工具
+    │   └── references/        # 参考资料
+    ├── task-execution-summary/         # 任务执行总结技能
+    │   ├── SKILL.md           # 技能元数据和文档
+    │   ├── evals/             # 评估文件
+    │   └── references/        # 参考资料和示例
+    └── anthropics-skills/              # Anthropic 官方技能集合
+        ├── .claude-plugin/    # Claude 插件配置
+        ├── skills/            # 技能子目录
+        │   ├── algorithmic-art/
+        │   ├── brand-guidelines/
+        │   ├── canvas-design/
+        │   ├── claude-api/
+        │   ├── doc-coauthoring/
+        │   ├── docx/
+        │   ├── frontend-design/
+        │   ├── internal-comms/
+        │   ├── mcp-builder/
+        │   ├── pdf/
+        │   ├── pptx/
+        │   ├── skill-creator/
+        │   ├── theme-factory/
+        │   ├── webapp-testing/
+        │   ├── web-artifacts-builder/
+        │   ├── xlsx/
+        │   └── slack-gif-creator/
+        ├── .gitignore
+        ├── README.md
+        └── THIRD_PARTY_NOTICES.md
 ```
 
 ### 目录说明
 
-- **skills/**：包含所有技能的主目录。每个技能都有自己的子目录。
-- **[skill-name]/SKILL.md**：每个技能都有一个 SKILL.md 文件，包含技能的元数据、描述和文档。
-- **[skill-name]/modules/**：对于具有复杂功能的技能，模块提供了一种将代码和文档组织到逻辑组件中的方式。
-- **[skill-name]/references/**：包含技能的参考资料、示例和附加文档。
-- **[skill-name]/evals/**：包含用于测试和验证技能功能的评估文件。
+| 目录 | 说明 |
+|------|------|
+| **skills/** | 包含所有技能的主目录。每个技能都有自己的子目录 |
+| **[skill-name]/SKILL.md** | 每个技能都有一个 SKILL.md 文件，包含技能的元数据、描述和文档 |
+| **[skill-name]/modules/** | 对于具有复杂功能的技能，模块提供了一种将代码和文档组织到逻辑组件中的方式 |
+| **[skill-name]/references/** | 包含技能的参考资料、示例和附加文档 |
+| **[skill-name]/evals/** | 包含用于测试和验证技能功能的评估文件 |
 
 ### 关键文件
 
-- **SKILL.md**：每个技能的主要文档文件，包含元数据、描述、使用说明和其他相关信息。
-- **README.md**：本文件，提供 daoSkilLs 目录及其内容的概述。
-- **LICENSE**：项目的许可证文件。
+| 文件 | 说明 |
+|------|------|
+| **SKILL.md** | 每个技能的主要文档文件，包含元数据、描述、使用说明和其他相关信息 |
+| **README.md** | 本文件，提供 daoSkilLs 目录及其内容的概述 |
+| **LICENSE** | 项目的许可证文件（Apache License 2.0） |
 
 ## 使用方法
 
@@ -95,10 +235,10 @@ daoSkilLs/
 
 `daoSkilLs` 目录中的技能可以通过多种方式调用，具体取决于特定技能和使用上下文。一般来说，技能可以通过以下方式触发：
 
-- **自然语言命令**
-- **特定触发短语**
-- **命令行调用**
-- **程序化 API 调用**
+- **自然语言命令** - 使用日常语言描述需求
+- **特定触发短语** - 使用预定义的命令或关键词
+- **命令行调用** - 使用 `/command` 格式
+- **程序化 API 调用** - 在代码中直接调用
 
 ### 使用 alipay-payment-integration 技能
 
@@ -151,11 +291,72 @@ daoSkilLs/
 - **模板类型**：标准版（通用）、学习版（用于教育目的）
 - **语言风格**：专业版（正式）、随意版（非正式）
 
+### 使用 claude-api 技能
+
+**触发条件**：
+- 代码导入 `anthropic` / `@anthropic-ai/sdk`
+- 用户要求使用 Claude API、Anthropic SDK 或 Managed Agents
+- 涉及 `/v1/agents`、`/v1/sessions`、`/v1/environments` 的请求
+
+**使用示例**：
+
+```
+# 示例 1：开始使用 Claude API
+"如何使用 Claude API 构建一个聊天机器人？"
+
+# 示例 2：Managed Agents
+"如何设置一个 Managed Agent 来处理文件操作？"
+
+# 示例 3：工具使用
+"如何在 Claude 中实现函数调用？"
+```
+
+**子命令**：
+- `/claude-api managed-agents-onboard` - 引导设置 Managed Agent
+
+### 使用 mcp-builder 技能
+
+**触发条件**：
+- 构建 MCP 服务器以集成外部 API 或服务
+- 使用 Python (FastMCP) 或 Node/TypeScript (MCP SDK)
+
+**使用示例**：
+
+```
+# 示例 1：开始构建 MCP 服务器
+"如何为 GitHub API 创建一个 MCP 服务器？"
+
+# 示例 2：工具设计
+"如何设计一个好的 MCP 工具？"
+```
+
+### 使用文档处理技能（pdf, docx, pptx）
+
+**触发条件**：
+- 用户提到 ".pdf"、".docx"、".pptx" 文件
+- 请求创建、编辑或转换文档
+- 需要提取文档内容或数据
+
+**使用示例**：
+
+```
+# PDF 处理
+"帮我合并这几个 PDF 文件"
+"从这个 PDF 中提取所有表格"
+
+# Word 处理
+"创建一个带有目录的 Word 文档"
+"修改这个 docx 文件中的标题"
+
+# PPT 处理
+"添加一张新幻灯片到演示文稿"
+```
+
 ## 依赖项
 
 ### 通用依赖项
 
-`daoSkilLs` 目录本身没有直接依赖项，但每个技能可能有自己的特定依赖项。以下是每个技能的依赖项：
+`daoSkilLs` 目录本身没有直接依赖项，但每个技能可能有自己的特定依赖项。
 
 ### alipay-payment-integration 技能
 
@@ -204,6 +405,53 @@ Install-Package Alipay.AopSdk.Core
 **配置**：
 - 不需要特定配置
 
+### claude-api 技能
+
+**依赖项**：
+- **Anthropic SDK**：根据语言选择对应的 SDK
+  - Python: `anthropic`
+  - TypeScript: `@anthropic-ai/sdk`
+  - Java: `com.anthropic.*`
+  - Go, Ruby, C#, PHP: 相应语言的 SDK
+
+**安装**：
+```bash
+# Python
+pip install anthropic
+
+# TypeScript
+npm install @anthropic-ai/sdk
+
+# Java - 添加 Maven 依赖（详见技能文档）
+```
+
+### docx 技能
+
+**依赖项**：
+- **docx-js**：用于创建新文档
+- **pandoc**：用于文本提取
+- **LibreOffice**：用于 PDF 转换
+
+**安装**：
+```bash
+npm install -g docx
+```
+
+### pdf 技能
+
+**依赖项**：
+- **pypdf**：基本 PDF 操作
+- **pdfplumber**：文本和表格提取
+- **reportlab**：创建 PDF
+- **poppler-utils**：命令行工具（pdftotext, pdfimages）
+- **qpdf**：PDF 操作工具
+
+**安装**：
+```bash
+pip install pypdf pdfplumber reportlab
+# 系统包管理器安装 poppler-utils 和 qpdf
+```
+
 ## 开发指南
 
 ### 创建新技能
@@ -217,13 +465,10 @@ Install-Package Alipay.AopSdk.Core
 ```markdown
 ---
 name: skill-name
-id: skill-name
-version: 1.0.0
 description: >-
   技能的简要描述以及何时使用它。
-dependencies:
-  - dependency1
-  - dependency2
+  包含触发条件和适用场景。
+license: 许可证信息
 ---
 
 # 技能名称
@@ -260,10 +505,11 @@ dependencies:
 
 ### 命名约定
 
-- **技能目录**：使用短横线连接的小写格式（例如，`alipay-payment-integration`）
-- **文件名**：使用小写并用短横线分隔（例如，`skill-metadata.md`）
-- **变量和函数**：使用驼峰命名法以保持一致性
-- **文档**：使用清晰、描述性的标题和部分
+| 类型 | 约定 | 示例 |
+|------|------|------|
+| **技能目录** | 短横线连接的小写格式 | `alipay-payment-integration` |
+| **文件名** | 小写并用短横线分隔 | `skill-metadata.md` |
+| **变量和函数** | 驼峰命名法 | `processPayment()` |
 
 ### 测试和验证
 
@@ -342,3 +588,92 @@ dependencies:
 2. **解释该功能**以及为什么它会有益
 3. **提供任何相关示例**或用例
 4. **与维护者讨论该功能**
+
+## 常见问题解答（FAQ）
+
+### 技能触发相关
+
+**Q: 为什么我的技能没有被触发？**
+
+A: 检查以下几点：
+- 确保你的请求包含技能的触发关键词
+- 检查 SKILL.md 中的描述是否准确描述了触发条件
+- 某些技能可能需要特定的上下文或前置条件
+
+**Q: 如何手动触发一个技能？**
+
+A: 大多数技能支持以下触发方式：
+- 直接提及技能名称
+- 使用特定的命令格式（如 `/skill-name`）
+- 描述你想要完成的任务，系统会自动匹配合适的技能
+
+**Q: 技能之间会有冲突吗？**
+
+A: 技能设计时会考虑触发条件的差异化。如果多个技能可能匹配，系统会选择最相关的一个。你也可以在请求中明确指定要使用的技能。
+
+### 技能使用相关
+
+**Q: 如何获得更好的技能输出？**
+
+A: 
+- 提供清晰、具体的上下文信息
+- 明确说明你的目标和期望
+- 对于复杂任务，分步骤描述你的需求
+- 参考技能文档中的使用示例
+
+**Q: 技能的输出可以自定义吗？**
+
+A: 许多技能支持自定义选项，如：
+- 输出格式（Markdown、JSON 等）
+- 详细程度（摘要、标准、详细）
+- 语言风格（专业、随意）
+
+具体选项请参考各技能的 SKILL.md 文档。
+
+**Q: 技能生成的报告保存在哪里？**
+
+A: 默认情况下，生成的报告会保存在当前工作目录。你可以在请求中指定保存路径，或在生成后手动移动文件。
+
+### 开发贡献相关
+
+**Q: 我可以为现有技能添加新功能吗？**
+
+A: 可以！欢迎为现有技能贡献改进。请遵循以下步骤：
+1. 阅读技能的现有文档和代码
+2. 在 issue 中讨论你的改进想法
+3. 提交包含详细描述的 pull request
+
+**Q: 创建新技能有什么要求？**
+
+A: 新技能应该：
+- 解决特定的问题或用例
+- 遵循标准的技能结构和命名约定
+- 包含完整的文档和示例
+- 有明确的触发条件
+- 经过充分测试
+
+**Q: 如何测试我的技能？**
+
+A: 
+1. 在 `evals/` 目录中创建评估文件
+2. 使用各种输入测试技能响应
+3. 验证输出格式和内容
+4. 请其他用户试用并提供反馈
+
+**Q: 技能可以使用外部 API 吗？**
+
+A: 可以，但需要：
+- 在文档中明确说明依赖的外部服务
+- 提供配置说明（API 密钥等）
+- 处理 API 错误和异常情况
+- 考虑隐私和安全问题
+
+## 许可证
+
+本项目采用 [Apache License 2.0](LICENSE) 许可证。
+
+---
+
+*文档版本：v2.0*
+*最后更新：2026-04-10*
+*维护者：daoApps 团队*
